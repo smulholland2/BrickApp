@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
-using BrickApp.Models.BrickBlocks;
+using BrickApp.Models.Bricks;
 
 namespace BrickApp.Controllers
 {
     public class BlogsController : Controller
     {
-        private BrickBlockContext _context;
+        private BrickContext _context;
 
-        public BlogsController(BrickBlockContext context)
+        public BlogsController(BrickContext context)
         {
             _context = context;    
         }

@@ -14,7 +14,7 @@ using BrickApp.Services;
 using BrickApp.Models.BrickStore;
 using BrickApp.Logging;
 using BrickApp.Models;
-using BrickApp.Models.BrickBlocks;
+using BrickApp.Models.Bricks;
 
 namespace BrickApp
 {
@@ -37,7 +37,7 @@ namespace BrickApp
         {
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<BrickBlockContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]))
+                .AddDbContext<BrickContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]))
                 .AddDbContext<BrickStoreContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]))
                 .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]));
 
