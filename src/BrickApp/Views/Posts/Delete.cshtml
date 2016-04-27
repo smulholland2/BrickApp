@@ -1,4 +1,4 @@
-@model BrickApp.Models.BrickBlocks.Post
+@model BrickApp.Models.Bricks.Post
 
 @{
     ViewData["Title"] = "Delete";
@@ -16,6 +16,24 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdated)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdated)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tags)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Title)

@@ -8,6 +8,6 @@ namespace BrickApp.Models.Bricks
     public class Blog
     {
         public int BlogId { get; set; }
-        public int Url { get; set; }
+        public string Category { get; set; }
     }
 }

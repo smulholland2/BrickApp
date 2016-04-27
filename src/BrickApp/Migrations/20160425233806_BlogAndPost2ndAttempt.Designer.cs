@@ -8,9 +8,10 @@ using BrickApp.Models.Bricks;
 namespace brickapp.Migrations
 {
     [DbContext(typeof(BrickContext))]
-    partial class BrickContextModelSnapshot : ModelSnapshot
+    [Migration("20160425233806_BlogAndPost2ndAttempt")]
+    partial class BlogAndPost2ndAttempt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -21,7 +22,7 @@ namespace brickapp.Migrations
                     b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Category");
+                    b.Property<int>("Url");
 
                     b.HasKey("BlogId");
                 });
@@ -38,8 +39,6 @@ namespace brickapp.Migrations
                     b.Property<DateTime>("DateCreated");
 
                     b.Property<DateTime>("LastUpdated");
-
-                    b.Property<string>("Tags");
 
                     b.Property<string>("Title");
 

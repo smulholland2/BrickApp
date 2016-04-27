@@ -4,6 +4,8 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using BrickApp.Models.Bricks;
+using BrickApp.ViewModels.Blogs;
+using System.Collections.Generic;
 
 namespace BrickApp.Controllers
 {
@@ -19,7 +21,13 @@ namespace BrickApp.Controllers
         // GET: Blogs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Blogs.ToListAsync());
+            List<Post> posts = _context.Posts.ToList();
+            List<Blog> blogs = _context.Blogs.ToList();
+            return View(new IndexViewModel
+            {
+                Blogs = blogs,
+                Posts = posts
+            });
         }
 
         // GET: Blogs/Details/5
@@ -31,12 +39,17 @@ namespace BrickApp.Controllers
             }
 
             Blog blog = await _context.Blogs.SingleAsync(m => m.BlogId == id);
+            IEnumerable<Post> posts = _context.Posts.ToList().Where(p => p.BlogId == id);
             if (blog == null)
             {
                 return HttpNotFound();
             }
 
-            return View(blog);
+            return View(new DetailsViewModel
+            {
+                Posts = posts,
+                Category = blog.Category
+            });
         }
 
         // GET: Blogs/Create

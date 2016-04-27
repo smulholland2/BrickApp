@@ -34,16 +34,13 @@
                         <li>@Html.ActionLink("Browse Store", "Index", "Shop")</li>
                         <li>@Html.ActionLink("Recalls", "Index", "Recalls")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
-                        @if (User.IsInRole(Roles.Admin))
-                        {
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Admin <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("Manage Products", "Index", "ManageProducts")</li>
-                                    <li>@Html.ActionLink("Bulk Price Reduction", "BulkPriceReduction", "ManageProducts")</li>
-                                </ul>
-                            </li>
-                        }
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Blogs <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Blog Categories", "Index", "Blogs")</li>
+                                <li>@Html.ActionLink("Blog Posts", "Index", "Posts")</li>
+                            </ul>
+                        </li>
                     </ul>
                     <form id="searchForm" class="navbar-form navbar-left" role="search">
                         <div class="form-group">

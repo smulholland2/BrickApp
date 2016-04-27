@@ -1,4 +1,4 @@
-@model IEnumerable<BrickApp.Models.BrickBlocks.Blog>
+@model BrickApp.ViewModels.Blogs.IndexViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,24 +9,29 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table">    
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Url)
+            Category
+        </th>
+        <th>
+            Number of Posts
         </th>
         <th></th>
     </tr>
-    
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Url)
-        </td>
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.BlogId">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.BlogId">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.BlogId">Delete</a>
-        </td>
-    </tr>
-}
+    @foreach (var blog in Model.Blogs)
+    {
+        <tr>
+            <td>
+                @blog.Category
+            </td>
+            <td>
+                @Model.Posts.Where(p => p.BlogId == blog.BlogId).Count()
+            </td>
+            <td>
+                <a asp-action="Create" asp-controller="Posts" asp-route-id="@blog.BlogId">New Blog Post</a> |
+                <a asp-action="Details" asp-controller="Blogs" asp-route-id="@blog.BlogId">View Posts</a>
+            </td>
+        </tr>
+    }
 </table>
