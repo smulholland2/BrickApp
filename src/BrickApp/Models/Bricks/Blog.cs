@@ -9,5 +9,6 @@ namespace BrickApp.Models.Bricks
     {
         public int BlogId { get; set; }
         public string Category { get; set; }
+        public Status Status { get; set; }
     }
 }

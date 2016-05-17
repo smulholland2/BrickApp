@@ -15,5 +15,6 @@ namespace BrickApp.Models.Bricks
         public DateTime LastUpdated { get; set; }
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
+        public Status Status { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-@model BrickApp.Models.Bricks.Blog
+@model BrickApp.ViewModels.Blogs.EditViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -17,6 +17,17 @@
             <div class="col-md-10">
                 <input asp-for="Category" class="form-control" />
                 <span asp-validation-for="Category" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Active" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <div class="form-control-checkbox">
+                        <input asp-for="Active" type="checkbox" />
+                        <span asp-validation-for="Active" class="text-danger" />
+                    </div>
+                </div>
             </div>
         </div>
         <div class="form-group">

@@ -11,7 +11,7 @@ Premium: http://www.gridgum.com
 
 /* BASIC THEME CONFIGURATION */
 body {
-    color: #797979;
+    color: #FFF;
 	background: #f2f2f2;
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
@@ -73,9 +73,6 @@ a, a:hover, a:focus {
 
 /*Theme Backgrounds*/
 
-.bg-theme {
-	background-color: #68dff0;
-}
 
 .bg-theme02 {
 	background-color: #ac92ec;
@@ -209,19 +206,15 @@ hr {
 	background-color: #68dff0;
 }
 
-.bg-theme {
-	background-color: #68dff0;
-}
-
 ul.top-menu > li > .logout {
-	color: #f2f2f2;
+	color: #000;
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
-	border: 1px solid #64c3c2 !important;
+	border: 1px solid #000 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #68dff0;
+	background: #fff;
 	margin-top: 15px;
 }
 
@@ -232,7 +225,7 @@ ul.top-menu > li > .logout {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: #424a5d;
+    background: #841F27;
 }
 
 #sidebar h5 {
@@ -350,7 +343,7 @@ ul.sidebar-menu li a span{
 }
 
 ul.sidebar-menu li a{
-    color: #aeb2b7;
+    color: #fff;
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
@@ -364,8 +357,8 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #68dff0;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     display: block;
 
     -webkit-transition: all 0.3s ease;
@@ -381,12 +374,8 @@ ul.sidebar-menu li a i {
     padding-right: 6px;
 }
 
-ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i {
-    color: #fff;
-}
-
-ul.sidebar-menu li a.active i {
-    color: #fff;
+ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i, ul.sidebar-menu li a.active i {
+    color: #000;
 }
 
 
@@ -413,8 +402,8 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ffd777;
-    border-bottom: 1px solid #c9aa5f;
+    background: #841F27;
+    border-bottom: 1px solid white;
 }
 
 .wrapper {
@@ -468,11 +457,11 @@ a.logo span {
 }
 
 ul.top-menu > li > a {
-    color: #666666;
+    color: #fff;
     font-size: 16px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
-    border:1px solid #666666 !important;
+    border:1px solid #fff !important;
     padding: 2px 6px;
     margin-right: 15px;
 }
@@ -488,6 +477,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .notify-row .badge {
+    background-color:#fff;
+    color:#000;
     position: absolute;
     right: -10px;
     top: -10px;
@@ -775,13 +766,13 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .ds h3 {
-	color: #ffffff;
+	color: #fff;
 	font-size: 16px;
 	padding: 0 10px;
 	line-height: 60px;
 	height: 60px;
 	margin: 0;
-	background: #ff865c;
+	background: #841F27;
 	text-align: center;
 }
 
@@ -1055,7 +1046,7 @@ PANELS CONFIGURATIONS
 /*Green Panel*/
 .green-panel {
 	text-align: center;
-	background: #68dff0;
+	background: #841F27;
 }
 .green-panel .green-header {
 	background: #43b1a9;
@@ -2216,7 +2207,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #68dff0;
+    background: #841F27;
     color: #fff;
     padding: 10px 0;
 }

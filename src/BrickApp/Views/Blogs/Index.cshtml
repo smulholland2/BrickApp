@@ -23,7 +23,8 @@
     {
         <tr>
             <td>
-                @blog.Category
+                <a asp-action="Edit" asp-controller="Blogs" asp-route-id="@blog.BlogId">@blog.Category</a>
+                
             </td>
             <td>
                 @Model.Posts.Where(p => p.BlogId == blog.BlogId).Count()

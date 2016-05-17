@@ -8,9 +8,10 @@ using BrickApp.Models.Bricks;
 namespace brickapp.Migrations
 {
     [DbContext(typeof(BrickContext))]
-    partial class BrickContextModelSnapshot : ModelSnapshot
+    [Migration("20160427225739_AddedStatusToBlogPost1")]
+    partial class AddedStatusToBlogPost1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

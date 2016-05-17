@@ -1,4 +1,4 @@
-@model BrickApp.Models.Bricks.Post
+@model BrickApp.ViewModels.Posts.DeleteViewModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -12,10 +12,10 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Content)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Content)
+            @Html.DisplayFor(model => model.Title)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.DateCreated)
@@ -28,19 +28,7 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.LastUpdated)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+        </dd>        
     </dl>
     
     <form asp-action="Delete">

@@ -6,6 +6,7 @@ using Microsoft.Data.Entity;
 using BrickApp.Models.Bricks;
 using BrickApp.ViewModels.Posts;
 using System;
+using Microsoft.AspNet.Authorization;
 
 namespace BrickApp.Controllers
 {
@@ -39,10 +40,17 @@ namespace BrickApp.Controllers
                 return HttpNotFound();
             }
 
-            return View(post);
+            return View(new DetailsViewModel {
+                Title = post.Title,
+                Content = post.Content,
+                Tags = post.Tags,
+                DateCreated = post.DateCreated,
+                LastUpdated = post.LastUpdated
+            });
         }
 
         // GET: Posts/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(int? id)
         {
             if (id == null)
@@ -59,6 +67,7 @@ namespace BrickApp.Controllers
         // POST: Posts/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(CreateViewModel formPost)
         {
 
@@ -86,6 +95,7 @@ namespace BrickApp.Controllers
         }
 
         // GET: Posts/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -115,6 +125,7 @@ namespace BrickApp.Controllers
         // POST: Posts/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(EditViewModel formPost)
         {
             if (ModelState.IsValid)
@@ -147,6 +158,7 @@ namespace BrickApp.Controllers
 
         // GET: Posts/Delete/5
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -160,12 +172,18 @@ namespace BrickApp.Controllers
                 return HttpNotFound();
             }
 
-            return View(post);
+            return View(new DeleteViewModel {
+                PostId = post.PostId,
+                Title = post.Title,
+                DateCreated = post.DateCreated,
+                LastUpdated = post.LastUpdated
+            });
         }
 
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             Post post = await _context.Posts.SingleAsync(m => m.PostId == id);

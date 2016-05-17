@@ -6,6 +6,7 @@ using Microsoft.Data.Entity;
 using BrickApp.Models.Bricks;
 using BrickApp.ViewModels.Blogs;
 using System.Collections.Generic;
+using BrickApp.Models;
 
 namespace BrickApp.Controllers
 {
@@ -21,8 +22,8 @@ namespace BrickApp.Controllers
         // GET: Blogs
         public async Task<IActionResult> Index()
         {
-            List<Post> posts = _context.Posts.ToList();
-            List<Blog> blogs = _context.Blogs.ToList();
+            List<Post> posts = _context.Posts.Where(p=> p.Status == Models.Status.Active).ToList();
+            List<Blog> blogs = _context.Blogs.Where(b => b.Status == Models.Status.Active).ToList();
             return View(new IndexViewModel
             {
                 Blogs = blogs,
@@ -38,7 +39,7 @@ namespace BrickApp.Controllers
                 return HttpNotFound();
             }
 
-            Blog blog = await _context.Blogs.SingleAsync(m => m.BlogId == id);
+            Blog blog = await _context.Blogs.SingleAsync(b => b.BlogId == id);
             IEnumerable<Post> posts = _context.Posts.ToList().Where(p => p.BlogId == id);
             if (blog == null)
             {
@@ -85,21 +86,43 @@ namespace BrickApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(blog);
+
+            //Status data goes to a checkbox and needs to be converted to bool for the viewmodel
+            bool Active = StatusHelper.ToBool(blog.Status);
+
+            return View(new EditViewModel {
+                BlogId = blog.BlogId,
+                Active = Active,
+                Category = blog.Category
+            });
         }
 
         // POST: Blogs/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Blog blog)
+        public async Task<IActionResult> Edit(EditViewModel formBlog)
         {
             if (ModelState.IsValid)
-            {
+            {                
+                //Status data from checkbox must be converted to Status enum
+                Status status = StatusHelper.ToStatus(formBlog.Active);
+                Blog blog = new Blog();
+                blog.BlogId = formBlog.BlogId;
+                blog.Category = formBlog.Category;                
+                blog.Status = status;
+
                 _context.Update(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }
-            return View(blog);
+            }            
+
+            return View(new EditViewModel
+            {
+                BlogId = formBlog.BlogId,
+                Active = formBlog.Active,
+                Category = formBlog.Category
+
+            });
         }
 
         // GET: Blogs/Delete/5
