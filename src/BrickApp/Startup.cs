@@ -15,6 +15,7 @@ using BrickApp.Models.BrickStore;
 using BrickApp.Logging;
 using BrickApp.Models;
 using BrickApp.Models.Bricks;
+using BrickApp.Models.Admin;
 
 namespace BrickApp
 {
@@ -39,6 +40,7 @@ namespace BrickApp
                 .AddSqlServer()
                 .AddDbContext<BrickContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]))
                 .AddDbContext<BrickStoreContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]))
+                .AddDbContext<AdminContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]))
                 .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:BrickApp"]));
 
             services.AddSingleton<CategoryCache>();
