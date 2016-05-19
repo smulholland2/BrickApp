@@ -8,9 +8,10 @@ using BrickApp.Models.Admin;
 namespace brickapp.Migrations.Admin
 {
     [DbContext(typeof(AdminContext))]
-    partial class AdminContextModelSnapshot : ModelSnapshot
+    [Migration("20160519095339_AdminModulesRequirementsUpdate1")]
+    partial class AdminModulesRequirementsUpdate1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

@@ -8,9 +8,10 @@ using BrickApp.Models.Admin;
 namespace brickapp.Migrations.Admin
 {
     [DbContext(typeof(AdminContext))]
-    partial class AdminContextModelSnapshot : ModelSnapshot
+    [Migration("20160519095137_MessageAndTaskFKeyUpdate1")]
+    partial class MessageAndTaskFKeyUpdate1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -23,8 +24,7 @@ namespace brickapp.Migrations.Admin
 
                     b.Property<DateTime>("DateSent");
 
-                    b.Property<int?>("SenderTeamMemberId")
-                        .IsRequired();
+                    b.Property<int?>("SenderTeamMemberId");
 
                     b.Property<bool>("Status");
 
@@ -38,13 +38,11 @@ namespace brickapp.Migrations.Admin
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Messsage")
-                        .IsRequired();
+                    b.Property<string>("Messsage");
 
                     b.Property<bool>("Status");
 
-                    b.Property<string>("User")
-                        .IsRequired();
+                    b.Property<string>("User");
 
                     b.HasKey("NotificationId");
                 });
@@ -77,8 +75,7 @@ namespace brickapp.Migrations.Admin
 
                     b.Property<bool>("Status");
 
-                    b.Property<string>("Task")
-                        .IsRequired();
+                    b.Property<string>("Task");
 
                     b.HasKey("TeamTaskId");
                 });

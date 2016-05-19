@@ -8,10 +8,16 @@ namespace BrickApp.Models.Admin
 {
     public class TeamTask
     {
+        [Key]
+        [Required]
         public int TeamTaskId { get; set; }
+        [Required]
         public string Task { get; set; }
-        public List<TeamMember> Members { get; set; }
+        [Required]
         public DateTime Date { get; set; }
+        [Required]
         public bool Status { get; set; }
+        [Required]
+        public List<TeamMember> TeamMembers { get; set; }
     }
 }
