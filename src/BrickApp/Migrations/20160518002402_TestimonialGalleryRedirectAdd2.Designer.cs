@@ -8,9 +8,10 @@ using BrickApp.Models.Bricks;
 namespace brickapp.Migrations
 {
     [DbContext(typeof(BrickContext))]
-    partial class BrickContextModelSnapshot : ModelSnapshot
+    [Migration("20160518002402_TestimonialGalleryRedirectAdd2")]
+    partial class TestimonialGalleryRedirectAdd2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -49,8 +50,6 @@ namespace brickapp.Migrations
 
                     b.Property<string>("ContentUrl")
                         .IsRequired();
-
-                    b.Property<int>("GalleryId");
 
                     b.HasKey("GalleryContentId");
                 });
@@ -106,13 +105,6 @@ namespace brickapp.Migrations
                         .IsRequired();
 
                     b.HasKey("TestimonialId");
-                });
-
-            modelBuilder.Entity("BrickApp.Models.Bricks.GalleryContent", b =>
-                {
-                    b.HasOne("BrickApp.Models.Bricks.Gallery")
-                        .WithMany()
-                        .HasForeignKey("GalleryId");
                 });
 
             modelBuilder.Entity("BrickApp.Models.Bricks.Post", b =>

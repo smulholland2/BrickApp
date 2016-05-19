@@ -65,6 +65,9 @@ namespace BrickApp
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
 
+                app.UseStatusCodePages();
+                app.UseStatusCodePagesWithRedirects("/Error");
+
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                     .CreateScope())
                 {
