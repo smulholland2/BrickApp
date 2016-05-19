@@ -420,7 +420,7 @@ a.logo {
     font-size: 20px;
     color: #ffffff;
     float: left;
-    margin-top: 15px;
+    margin-top: 5px;
     text-transform: uppercase;
 }
 
@@ -2230,5 +2230,7 @@ label {
 .site-min-height {
     min-height: 900px;
 }
-
+.brick-icon {
+    font-size:32px;
+}
 

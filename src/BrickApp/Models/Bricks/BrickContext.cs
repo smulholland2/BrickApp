@@ -17,6 +17,9 @@ namespace BrickApp.Models.Bricks
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<GalleryContent> GalleryContent { get; set; }
         public DbSet<Redirect> Redirects { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Page> Pages { get; set; }
+        public DbSet<Menu> Menus { get; set; }
 
         public override int SaveChanges()
         {
