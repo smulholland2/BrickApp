@@ -514,7 +514,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-    background-color: #68dff0;
+    background-color: #000;
     color: #fff;
 }
 
@@ -719,8 +719,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 .notify-arrow-green {
     border-color: transparent transparent #68dff0;
-    border-bottom-color: #68dff0 !important;
-    border-top-color: #68dff0 !important;
+    border-bottom-color: #000 !important;
+    border-top-color: #000 !important;
 }
 
 
@@ -2233,4 +2233,42 @@ label {
 .brick-icon {
     font-size:32px;
 }
-
+.dropdown-menu.extended.admin-settings {
+    max-width: 300px !important;
+    min-width: 160px !important;
+    top: 42px;
+    left: -125px;
+    width: 235px !important;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
+    border: none !important;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.notify-arrow-right {
+    border-style: solid;
+    border-width: 0 9px 9px;
+    height: 0;
+    margin-top: 0;
+    opacity: 0;
+    position: absolute;
+    left: 130px;
+    top: -18px;
+    transition: all 0.25s ease 0s;
+    width: 0;
+    z-index: 10;
+    margin-top: 10px;
+    opacity: 1;
+}
+.dropdown-menu.extended.admin-settings li p.green {
+    background-color: #000;
+    color: #fff;
+}
+.dropdown-menu.extended.admin-settings li p {
+    background-color: #F1F2F7;
+    color: #666666;
+    margin: 0;
+    padding: 10px;
+    border-radius: 4px 4px 0px 0px;
+    -webkit-border-radius: 4px 4px 0px 0px;
+}
